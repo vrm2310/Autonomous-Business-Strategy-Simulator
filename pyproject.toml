@@ -4,9 +4,12 @@ version = "0.1.0"
 description = "Autonomous Business Strategy Simulator"
 requires-python = ">=3.12"
 dependencies = [
+    "alembic>=1.20.0",
     "fastapi>=0.116",
+    "psycopg[binary]>=3.3.6",
     "pydantic>=2.11",
     "pydantic-settings>=2.10",
+    "sqlalchemy>=2.0.54",
     "uvicorn[standard]>=0.35",
 ]
 
