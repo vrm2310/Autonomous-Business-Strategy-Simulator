@@ -76,3 +76,13 @@ class SimulationCycle(BaseModel):
     market_state: MarketState
     events: list[SimulationEvent] = Field(default_factory=lambda: list[SimulationEvent]())
     scope: Scope | None = None
+
+
+class SimulationContext(BaseModel):
+    cycle_id: int
+    company_id: int
+    company_state: CompanyState
+    market_state: MarketState
+    events: list[SimulationEvent] = Field(
+        default_factory=lambda: list[SimulationEvent](),
+    )
