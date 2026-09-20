@@ -3,7 +3,7 @@ from __future__ import annotations
 from enum import StrEnum
 from typing import Any
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class SimulationStatus(StrEnum):
@@ -39,6 +39,7 @@ class SimulationEvent(BaseModel):
 
 class Scope(BaseModel):
     # Immutable-at-runtime boundary conditions for one simulation cycle.
+    model_config = ConfigDict(frozen=True)
     cycle_id: str
     objectives: list[str] = Field(default_factory=list)
     hard_constraints: dict[str, Any] = Field(default_factory=dict)
