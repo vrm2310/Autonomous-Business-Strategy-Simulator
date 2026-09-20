@@ -87,3 +87,25 @@ class SimulationContext(BaseModel):
     events: list[SimulationEvent] = Field(
         default_factory=lambda: list[SimulationEvent](),
     )
+
+class ForecastFeatures(BaseModel):
+    revenue: float
+    profit: float
+    cash: float
+    inventory: float
+    employees: float
+    market_share: float
+
+    demand_index: float
+    inflation_rate: float
+    interest_rate: float
+    competitor_pressure: float
+    seasonality_index: float
+
+    event_count: float
+    total_event_severity: float
+    high_inflation_event: float
+    high_competition_event: float
+    low_demand_event: float
+    demand_surge_event: float
+    cash_constraint_event: float
