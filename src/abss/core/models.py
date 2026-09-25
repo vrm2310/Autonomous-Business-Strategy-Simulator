@@ -109,3 +109,24 @@ class ForecastFeatures(BaseModel):
     low_demand_event: float
     demand_surge_event: float
     cash_constraint_event: float
+
+class ForecastPoint(BaseModel):
+    horizon: int
+    revenue: float
+    profit: float
+    cash: float
+    inventory: float
+    market_share: float
+
+
+class ForecastResult(BaseModel):
+    cycle_id: int
+    horizon: int
+    points: list[ForecastPoint] = Field(
+        default_factory=lambda: list[ForecastPoint](),
+    )
+    model_version: str
+
+class ForecastTrainingSample(BaseModel):
+    features: ForecastFeatures
+    target: ForecastPoint
